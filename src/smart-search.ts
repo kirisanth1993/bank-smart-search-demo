@@ -4,7 +4,6 @@ import { debounce } from "./utils/debounce";
 import { highlight } from "./utils/highlight";
 import { positionDropdown } from "./utils/position";
 import "./theme.css";
-import "./style.css";
 import { SearchResultItem } from "./types";
 
 @customElement("bank-smart-search")
@@ -21,7 +20,55 @@ export class BankSmartSearch extends LitElement {
   private inputRef!: HTMLInputElement;
   private dropdownRef!: HTMLDivElement;
 
-  static style = css``; // styles in external CSS
+  static styles = css`
+    :host {
+      display: block;
+      font-family: system-ui, sans-serif;
+      position: relative;
+    }
+    .search-container {
+      position: relative;
+      width: 40%;
+      max-width: 100%;
+    }
+    input {
+      width: 100%;
+      height: 48px;
+      padding: 0 16px;
+      border: 1px solid var(--border-color, #ccc);
+      border-radius: 6px;
+      font-size: 16px;
+      box-sizing: border-box;
+    }
+    .clear-btn {
+      position: absolute;
+      right: 8px;
+      top: 8px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-size: 18px;
+    }
+    .dropdown {
+      position: absolute;
+      z-index: 9999;
+      width: 100%;
+      margin-top: 4px;
+      background: var(--surface, #fff);
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      max-height: 320px;
+      overflow-y: auto;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    .item {
+      padding: 14px;
+      cursor: pointer;
+    }
+    .item[selected] {
+      background: var(--selected-bg, #eef5ff);
+    }
+  `;
 
   firstUpdated() {
     this.inputRef = this.renderRoot.querySelector("input")!;
@@ -36,10 +83,9 @@ export class BankSmartSearch extends LitElement {
     }
   }
 
-  private onInput = debounce((ev: any) => {
-    this.term = ev.target.value;
+  private debouncedInput = debounce((value: string) => {
+    this.term = value;
     this.selectedIndex = 0;
-
     this.dispatchEvent(
       new CustomEvent("search-input", {
         detail: { term: this.term },
@@ -47,10 +93,14 @@ export class BankSmartSearch extends LitElement {
         composed: true,
       })
     );
-
     this.open = true;
     this.updateDropdownPosition();
   }, this.debounceMs);
+
+  private onInput(ev: Event) {
+    const value = (ev.target as HTMLInputElement).value;
+    this.debouncedInput(value);
+  }
 
   private onKeyDown(e: KeyboardEvent) {
     if (!this.open) return;
@@ -110,6 +160,7 @@ export class BankSmartSearch extends LitElement {
         <input
           type="text"
           placeholder=${this.placeholder}
+          .value=${this.term}
           @input=${this.onInput}
           @keydown=${this.onKeyDown}
           @focus=${() => (this.open = true)}
