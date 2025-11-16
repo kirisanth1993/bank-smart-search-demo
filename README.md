@@ -13,3 +13,6 @@ A fully reusable, accessible, keyboard-friendly smart search component for banki
 ## Usage
 ```html
 <bank-smart-search></bank-smart-search>
+
+In Localhost can visit the demo here
+http://localhost:5173/demo/index.html 
