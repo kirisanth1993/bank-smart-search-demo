@@ -1,0 +1,6 @@
+:host([theme="dark"]) {
+  --surface: #1e1e1e;
+  --border-color: #444;
+  --selected-bg: #333;
+  color: #fff;
+}

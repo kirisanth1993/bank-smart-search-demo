@@ -1,0 +1,106 @@
+[
+  {
+    "id": "acc-001",
+    "type": "account",
+    "title": "Savings Account • 1234",
+    "subtitle": "Balance: $5,210.24",
+    "metadata": {
+      "accountNumber": "1234",
+      "balance": 5210.24
+    }
+  },
+  {
+    "id": "acc-002",
+    "type": "account",
+    "title": "Checking Account • 9876",
+    "subtitle": "Balance: $1,044.10",
+    "metadata": {
+      "accountNumber": "9876",
+      "balance": 1044.1
+    }
+  },
+  {
+    "id": "cus-001",
+    "type": "customer",
+    "title": "John Doe",
+    "subtitle": "Customer ID: CUST-7761",
+    "metadata": {
+      "customerId": "CUST-7761"
+    }
+  },
+  {
+    "id": "cus-002",
+    "type": "customer",
+    "title": "Maria Henderson",
+    "subtitle": "Customer ID: CUST-5520",
+    "metadata": {
+      "customerId": "CUST-5520"
+    }
+  },
+  {
+    "id": "card-101",
+    "type": "card",
+    "title": "Visa Platinum • 4411",
+    "subtitle": "Limit: $10,000 | Available: $6,820",
+    "metadata": {
+      "cardNumber": "4411",
+      "limit": 10000,
+      "available": 6820
+    }
+  },
+  {
+    "id": "card-102",
+    "type": "card",
+    "title": "Mastercard Gold • 6733",
+    "subtitle": "Limit: $5,000 | Available: $1,200",
+    "metadata": {
+      "cardNumber": "6733",
+      "limit": 5000,
+      "available": 1200
+    }
+  },
+  {
+    "id": "txn-9001",
+    "type": "transaction",
+    "title": "POS Purchase • Walmart",
+    "subtitle": "Amount: -$82.14 | 2024-01-15",
+    "metadata": {
+      "amount": -82.14,
+      "date": "2024-01-15",
+      "merchant": "Walmart"
+    }
+  },
+  {
+    "id": "txn-9002",
+    "type": "transaction",
+    "title": "Salary Credit • ABC Corp",
+    "subtitle": "Amount: +$3,100.00 | 2024-01-30",
+    "metadata": {
+      "amount": 3100,
+      "date": "2024-01-30",
+      "source": "ABC Corp"
+    }
+  },
+  {
+    "id": "loan-301",
+    "type": "loan",
+    "title": "Home Loan • HL-55821",
+    "subtitle": "Outstanding: $245,220 | EMI: $1,820",
+    "metadata": {
+      "loanId": "HL-55821",
+      "outstanding": 245220,
+      "emi": 1820
+    }
+  },
+  {
+    "id": "loan-302",
+    "type": "loan",
+    "title": "Auto Loan • AL-11092",
+    "subtitle": "Outstanding: $9,880 | EMI: $420",
+    "metadata": {
+      "loanId": "AL-11092",
+      "outstanding": 9880,
+      "emi": 420
+    }
+  }
+]
